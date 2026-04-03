@@ -46,16 +46,16 @@ Incluye autenticación de usuarios, diferenciación de roles y conexión a base 
 
 ```txt
 project/
-├── database/
-├── scripts/
-|    └── create_db.py
 ├── connection_db.py
 ├── login.py
 ├── main_menu.py
 ├── main.py
 ├── schedule_manager.py
 ├── README.md
-└── .gitignore
+│── .gitignore
+├── database/
+└── scripts/
+    └── create_db.py
 ```
 
 ---
@@ -65,7 +65,7 @@ project/
 1. Clonar el repositorio:
 
 ```
-git clone <tu-repo>
+git clone https://github.com/LinoSimon20/academic-schedule-system.git
 ```
 
 2. Ejecutar el programa:
