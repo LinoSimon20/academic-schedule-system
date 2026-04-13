@@ -46,16 +46,29 @@ Incluye autenticación de usuarios, diferenciación de roles y conexión a base 
 
 ```txt
 project/
-├── connection_db.py
-├── login.py
-├── main_menu.py
-├── main.py
-├── schedule_manager.py
-├── README.md
-│── .gitignore
+├── controllers/
+│   ├── auth_controller.py
+│   ├── menu_controller.py
+│   └── schedule_controller.py
+├── models/
+│   ├── db.py
+│   ├── subject.py
+│   └── user.py
+├── views/
+│   ├── auth_view.py
+│   ├── menu_view.py
+│   └── schedule_view.py
+├── legacy/ # Antiguo
+│   ├── connection_db.py
+│   ├── login.py
+│   ├── main_menu.py
+│   └── schedule_manager.py
 ├── database/
-└── scripts/
-    └── create_db.py
+├── scripts/
+│   └── create_db.py
+├── main.py
+├── README.md
+└── .gitignore
 ```
 
 ---

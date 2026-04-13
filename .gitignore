@@ -3,6 +3,7 @@
 
 # Archivos de Python
 __pycache__/
+__init__.py
 *.pyc
 
 # Entornos virtuales
