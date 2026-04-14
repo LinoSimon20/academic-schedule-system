@@ -1,6 +1,12 @@
-import sqlite3
+import sqlite3, os
 
+# Funcion para crear la base de datos con las tablas necesarias y datos de ejemplo
 def crear_base_de_datos():
+
+    # Aseguramos de que la carpeta database exista
+    os.makedirs("database", exist_ok=True)
+
+    # Creamos la conexion a la base de datos
     conn = sqlite3.connect("database/academic_schedule.db")
     cursor = conn.cursor()
 
@@ -9,23 +15,23 @@ def crear_base_de_datos():
 
     # Tabla tipos de usuario
     cursor.execute("""
-    CREATE TABLE tipos_usuario (
+    CREATE TABLE IF NOT EXISTS tipos_usuario (
         id_tipo INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT NOT NULL
+        nombre TEXT NOT NULL UNIQUE
     );
     """)
 
     # Tabla carreras
     cursor.execute("""
-    CREATE TABLE carreras (
+    CREATE TABLE IF NOT EXISTS carreras (
         id_carrera INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT NOT NULL
+        nombre TEXT NOT NULL UNIQUE
     );
     """)
 
     # Tabla menciones
     cursor.execute("""
-    CREATE TABLE menciones (
+    CREATE TABLE IF NOT EXISTS menciones (
         id_mencion INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL,
         id_carrera INTEGER,
@@ -35,9 +41,9 @@ def crear_base_de_datos():
 
     # Tabla usuarios
     cursor.execute("""
-    CREATE TABLE usuarios (
+    CREATE TABLE IF NOT EXISTS usuarios (
         id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT NOT NULL,
+        nombre TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
         id_tipo INTEGER,
         id_carrera INTEGER,
@@ -50,7 +56,7 @@ def crear_base_de_datos():
 
     # Tabla materias
     cursor.execute("""
-    CREATE TABLE materias (
+    CREATE TABLE IF NOT EXISTS materias (
         id_materia INTEGER PRIMARY KEY AUTOINCREMENT,
         sigla TEXT,
         nombre TEXT NOT NULL
@@ -59,7 +65,7 @@ def crear_base_de_datos():
 
     # Tabla dias
     cursor.execute("""
-    CREATE TABLE dias (
+    CREATE TABLE IF NOT EXISTS dias (
         id_dia INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL
     );
@@ -67,15 +73,15 @@ def crear_base_de_datos():
 
     # Tabla horas
     cursor.execute("""
-    CREATE TABLE horas (
+    CREATE TABLE IF NOT EXISTS horas (
         id_hora INTEGER PRIMARY KEY AUTOINCREMENT,
         hora TEXT NOT NULL
     );
     """)
 
-    # Tabla horario (AQUÍ ESTÁ LO IMPORTANTE)
+    # Tabla horario
     cursor.execute("""
-    CREATE TABLE horario (
+    CREATE TABLE IF NOT EXISTS horario (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_usuario INTEGER,
         id_materia INTEGER,
@@ -90,7 +96,7 @@ def crear_base_de_datos():
 
     # Tabla plan de estudios
     cursor.execute("""
-    CREATE TABLE plan_estudios (
+    CREATE TABLE IF NOT EXISTS plan_estudios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_carrera INTEGER,
         id_materia INTEGER,
@@ -130,5 +136,6 @@ def crear_base_de_datos():
 
     print("Base de datos creada correctamente")
 
-# Ejecutar
-crear_base_de_datos()
+# Invocamos la funcion para crear la base de datos 
+if __name__ == "__main__":
+    crear_base_de_datos()
