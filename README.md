@@ -8,6 +8,9 @@ Este proyecto permite a los usuarios gestionar materias y crear horarios académ
 
 Incluye autenticación de usuarios, diferenciación de roles y conexión a base de datos.
 
+> [!NOTE] 
+> Proyecto de código abierto, ampliamente modificable a necesidades.
+
 #### (Proximamente interfaz visual).
 
 ---
@@ -100,7 +103,10 @@ La base de datos contiene tablas como:
 * carreras
 * menciones
 
+> [!IMPORTANT]
 > La base de datos `.db` no está incluida en el repositorio.
+
+> [!TIP]
 > Se recomienda generar una nueva mediante script (create_db.py) en: scripts/.
 
 ```bash
@@ -127,6 +133,7 @@ Próximas mejoras:
 * Sistema de horarios sin conflictos
 * Mejoras en interfaz de usuario
 * Validaciones adicionales
+* Documentación pertinente a cada función
 
 ---
 
