@@ -127,14 +127,6 @@ python3 scripts/create_db.py
 
 En desarrollo...
 
-Próximas mejoras:
-
-* Gestión completa de materias
-* Sistema de horarios sin conflictos
-* Mejoras en interfaz de usuario
-* Validaciones adicionales
-* Documentación pertinente a cada función
-
 ---
 
 ## Autor

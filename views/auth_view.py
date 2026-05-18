@@ -1,31 +1,46 @@
-# Vista para la autenticacion de usuarios
-# Funcion para limpiar la pantalla (simulada con saltos de linea)
+# Función para limpiar la pantalla mostrando múltiples saltos de línea
 def limpiar_pantalla():
+    # Imprimimos 20 saltos de línea para simular una pantalla limpia
     print("\n" * 20)
 
-# Funcione para mostrar el menu de incio de sesión
+# Función para mostrar el menú de inicio de sesión o registro
 def mostrar_menu_inicial():
-    print("Bienvenido al sistema de horarios")
-    print("1. Iniciar sesión")
+    # Imprimimos el título del sistema
+    print("=" * 50)
+    print("SISTEMA DE GESTIÓN DE HORARIOS ACADÉMICOS")
+    print("=" * 50)
+    # Imprimimos las opciones disponibles
+    print("\n1. Iniciar sesión")
     print("2. Crear una cuenta")
+    print("-" * 50)
 
-# Funcion para solicitar los datos de inisio de sesión
+# Función para solicitar las credenciales de acceso al usuario
 def solicitar_credenciales():
+    # Solicitamos el nombre de usuario
     nombre = input("Usuario: ").strip()
+    # Solicitamos la contraseña
     password = input("Contraseña: ").strip()
+    # Retornamos ambas credenciales como tupla
     return nombre, password
 
-# Funcion para solicitar los datos de registro de una nueva cuenta
+# Función para solicitar los datos necesarios para crear una nueva cuenta
 def solicitar_nuevo_usuario():
+    # Solicitamos el nombre del nuevo usuario
     nombre = input("Ingrese un nombre de usuario: ").strip()
+    # Solicitamos la contraseña del nuevo usuario
     password = input("Ingrese una contraseña: ").strip()
+    # Solicitamos la confirmación de la contraseña
     password1 = input("Ingrese nuevamente la contraseña: ").strip()
+    # Retornamos los datos como tupla
     return nombre, password, password1
 
-# Funcion para mostrar un mensanje de error al usuario
+# Función para mostrar un mensaje de error al usuario
 def mostrar_error(mensaje):
-    print(f"Error: {mensaje}")
+    # Imprimimos el mensaje de error formateado
+    print(f"\n✗ Error: {mensaje}")
 
-# Funcion para mostrar un mensaje de exito al usuario
+# Función para mostrar un mensaje de éxito al usuario
 def mostrar_exito(mensaje):
-    print(f"Éxito: {mensaje}")
+    # Imprimimos el mensaje de éxito formateado
+    print(f"\n✓ Éxito: {mensaje}")
+
